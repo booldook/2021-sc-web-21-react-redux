@@ -7,7 +7,7 @@ const state = { str: '', arr: [], obj: null }
 // reducer는 함수형태로 만든다
 // reducer는 실제로 값을 저장한다 (저장된 값은 자동으로 state에 반영된다)
 // vuex의 mutations이다.
-const reducers = (prev, action) => {
+const reducers = (prev = state, action) => {
 	switch(action.type) {
 		case 'ACT_STR':
 			return {
@@ -36,7 +36,7 @@ const actStr = (payload) => {
 // store는 redux의 핵심모듈이고 reducer, state, subscribe를 관장한다.
 // store는 등록만 해주면 끝난다.
 // vuex의 new Vuex.Store({ state, getters, mutations, actions }) 이다
-const store = createStore(reducers, state)
+const store = createStore(reducers)
 
 
 // subscribe는 state가 변경되면 자동으로 실행된다.

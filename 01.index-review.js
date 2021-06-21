@@ -2,7 +2,7 @@ const { createStore } = require('redux')
 
 const state = { str: '' }
 
-const reducers = (prevState, action) => {
+const reducers = (prevState = state, action) => {
 	switch(action.type) {
 		case 'ACT_STR':
 			return {
@@ -11,7 +11,7 @@ const reducers = (prevState, action) => {
 	}
 }
 
-const store = createStore(reducers, state)
+const store = createStore(reducers)
 store.subscribe( () => { console.log( store.getState() ) } )
 const actStr = (payload) => {
 	return {
